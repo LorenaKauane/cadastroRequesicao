@@ -1,0 +1,9 @@
+com/example/demo/Predicate/CriteriaUtil.class
+com/example/demo/Predicate/UsuarioQuery.class
+com/example/demo/service/UsuarioService.class
+com/example/demo/repositorios/UsuarioRepositorio.class
+com/example/demo/service/RequesicaoService.class
+com/example/demo/entidade/Usuario.class
+com/example/demo/entidade/Requesicao.class
+com/example/demo/controller/RequesicaoController.class
+com/example/demo/repositorios/RequesicaoRepositorio.class

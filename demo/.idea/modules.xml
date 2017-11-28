@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$USER_HOME$/projetos/cadastro-tecnico-multifinalitario/cadastro-tecnico-multifinalitario-services/cadastro-tecnico-multifinalitario-services.iml" filepath="$USER_HOME$/projetos/cadastro-tecnico-multifinalitario/cadastro-tecnico-multifinalitario-services/cadastro-tecnico-multifinalitario-services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo.iml" filepath="$PROJECT_DIR$/demo.iml" />
+      <module fileurl="file://$USER_HOME$/projetos/cadastro-tecnico-multifinalitario/formularios-cadastro-tecnico-multifinalitario-services/formularios-cadastro-tecnico-multifinalitario-services.iml" filepath="$USER_HOME$/projetos/cadastro-tecnico-multifinalitario/formularios-cadastro-tecnico-multifinalitario-services/formularios-cadastro-tecnico-multifinalitario-services.iml" />
+      <module fileurl="file://$USER_HOME$/projetos/cadastro-tecnico-multifinalitario/cadastro-tecnico-multifinalitario-services/target/maven-archiver/maven-archiver.iml" filepath="$USER_HOME$/projetos/cadastro-tecnico-multifinalitario/cadastro-tecnico-multifinalitario-services/target/maven-archiver/maven-archiver.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="PT-BR" ng-app="appRequesicoes">
+<head>
+	<meta charset="UTF-8">
+	<title>Cadastrar Usuario</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+
+   	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+    <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+
+    <script
+    src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+    crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/blitzer/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.js">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.js"></script>
+
+
+	<script src="app.js"></script>
+	<script src="appCadastroUsuario.js"></script>
+
+	<script>
+    jQuery(function($){
+        $("#cpf").mask("999.999.999-99");
+    });
+    </script>
+</head>
+<body ng-controller="usuariosCadastroController">
+	
+	<br>
+	<div class="container">
+		<div class="jumbotron">
+            <h1>Olá usuario,</h1>
+            <p class="lead">Bem vindo a minha aplicação, feita nas seguintes tecnologias, spring boot, spring data, angular e bootstrap.
+                    Voce pode cadastrar usuarios e requisições com as funcionalidades de editar, buscar e deletar.</p>
+            <hr class="my-4">
+            <b>Faça bom aproveito!</b> 
+        </div><!--/jumbotron -->
+
+        <h1><span class="badge badge-pill badge-dark">Cadastro de Usuario</span></h1><br>
+
+
+		<form action="" name="formCadastro">
+			<div class="form-group">
+				<label  class="form-control-label"/>Nome:</label>
+				<input type="text" required ng-minlength="4" class="form-control" ng-model="usuario.nome">
+			</div>
+			<div class="form-group">
+				<label  class="form-control-label"/>CPF:</label>
+				<input type="text"  required="false"  id="cpf" class="form-control" ng-model="usuario.cpf">
+			</div>
+			<div class="form-group">
+				<label  class="form-control-label"/>E-MAIL:</label>
+				<input type="text" required  ng-minlength="4" class="form-control" ng-model="usuario.email">
+			</div>
+			<div class="form-group">
+				<input type="button" class="btn btn-success" ng-disabled="formCadastro.$invalid" value="Salvar Usuario" ng-click="salvar()"/>
+				<input type="button" class="btn btn-primary" value="Cancelar" ng-click="cancelarUsuario()"/>
+                <a href="usuario.html" class="btn btn-secondary">Voltar</a>
+			</div>
+
+		</form>
+	</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
+</html>

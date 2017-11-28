@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="appRequesicoes">
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="./js/app.js"></script>
+<script src="./js/controller/clienteController.js"></script>
+</head>
+<body ng-controller="clientesController">
+	<a href="/">área de requesições</a>
+	<br/>
+	<table border="1">
+		<tr>
+			<th>ID</th>
+			<th>NOME</th>
+			<th>CPF</th>
+			<th>Edição</th>
+		</tr>
+		<tr ng-repeat="cliente in clientes">
+			<td>{{cliente.idCliente}}</td>
+			<td>{{cliente.nome}}</td>
+			<td>{{cliente.cpf}}</td>
+			<td>
+				<input type="button" value="Alterar" ng-click="alterarCliente(cliente)"/>
+				<input type="button" value="Deletar" ng-click="deletarCliente(cliente)"/>
+			</td>
+		</tr>
+	</table>
+
+	<br/>
+	<hr/>
+	<h1>Cadastro Clientes</h1>
+	<br/>
+	Nome:
+	<br/>
+	<input type="text" ng-model="cliente.nome" />
+	<br/>
+	CPF:
+	<br/>
+	<input type="text" ng-model="cliente.cpf" />
+	<br/>
+	<input type="button" ng-click="salvarCliente()" value="Salvar Cliente"/>
+	<input type="button" ng-click="cancelarCliente()" value="Cancelar"/>
+	
+</body>
+</html>

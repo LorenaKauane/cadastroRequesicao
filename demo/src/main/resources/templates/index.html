@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="appRequesicoes">
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="./js/app.js"></script>
+<script src="./js/controller/requesicaoController.js"></script>
+</head>
+<body ng-controller="requesicoesController">
+{{requesicao.observacaoRequesicao}}
+	<br/>
+
+	<table border="1">
+		<tr>
+			<th>Id Requesicao</th>
+			<th>ID cliente</th>
+			<th>Nome Cliente</th>
+			<th>CPF cliente</th>
+			<th>Data Requesicao</th>
+			<th>Tipo Requesicao</th>
+			<th>ObservacaoRequesicao</th>
+			<th>Edição</th>
+		</tr>
+		<tr ng-repeat="requisicao in requisicoes">
+			<td>{{requisicao.idRequesicao}}</td>
+			<td>{{requisicao.cliente.idCliente}}</td>
+			<td>{{requisicao.cliente.nome}}</td>
+			<td>{{requisicao.cliente.cpf}}</td>
+			<td>{{requisicao.data}} </td>
+			<td>{{requisicao.tipoRequesicao}}</td>
+			<td>{{requisicao.observacaoRequesicao}}</td>
+			<td>
+				<input type="button" value="Deletar" ng-click="deletarRequesicao(requisicao)"/>
+				<input type="button" value="Alterar" ng-click="alterarRequesicao(requisicao)"/>
+			</td>
+		</tr>
+	</table>
+	Buscar pelo ID: 
+	<input type="text" ng-model="requesicaoBusca"/> 
+	<input type="button" value="Buscar" ng-click="buscarRequesicao(requesicaoBusca)"/>
+	<br>
+	Buscar pelo ID Cliente: 
+	<input type="text" ng-model="requesicaoBuscaCliente" /> 
+	<input type="button" value="Buscar" ng-click="buscarRequesicaoCliente(requesicaoBuscaCliente)"/>
+	<br>
+	<br/>
+	<hr/>
+
+	<h1>Cadastro de requesicao</h1>
+	
+	idcliente <br/>
+	<input type="text" ng-model="requesicao.cliente.idCliente"/><br/>
+	data <br/>
+	<input type="data" ng-model="requesicao.data"/><br/>
+	Tipo de requesicao <br/>
+	<select ng-model="requesicao.tipoRequesicao">
+		<option value="Viagem">Viagem</option>
+		<option value="Ausencia">Ausencia</option>
+	</select>
+
+
+	Observacao <br/>
+	<textarea  cols="30" rows="10" ng-model="requesicao.observacaoRequesicao"></textarea></br>
+	
+	
+	
+	<input type="button" value="Salvar Requesicao" ng-click="salvarRequesicao()"/>
+	<input type="button" value="Cancelar" ng-click="cancelarAlteracaoRequesicao()"/>
+
+	</br>
+	
+	<a href="cliente.html"> área do Cliente </a> 
+	
+	
+</body>
+</html>

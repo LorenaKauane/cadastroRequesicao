@@ -1,0 +1,164 @@
+<!DOCTYPE>
+<html lang="PT BR" ng-app="appRequesicoes" >
+<head>
+	<meta charset="UTF-8">
+	<title>Index</title>
+	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body ng-controller="requesicoesController">
+	<br>
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Olá usuario,</h1>
+			<p class="lead">Bem vindo a minha aplicação, feita nas seguintes tecnologias, spring boot, spring data, angular e bootstrap.
+				Voce pode cadastrar Usuarios e requisições com as funcionalidades de editar, buscar e deletar.</p>
+			<hr class="my-4">
+			<b>Faça bom aproveito!</b> 
+		</div><!--/jumbotron -->
+		<div class="row">
+			<div class="col-md-6">
+				<h1><span class="badge badge-pill badge-dark">Área de Requesições</span></h1><br>
+			</div>
+			<div class="col-md-6">
+				<input type="text" class="form-control" ng-model="requesicaoBusca" placeholder="Busca....">
+				<button class="btn btn-info" ng-click="buscarRequesicao()">
+					<span class="ion-search"></span> Buscar
+				</button>
+			</div>
+		</div>
+		<div class="tabela">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Id Requesição</th>
+						<th>ID Usuario</th>
+						<th>Nome</th>
+						<th>CPF</th>
+						<th>Data</th>
+						<th>Tipo </th>
+						<th>Observacao</th>
+						<th>Edição</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="requisicao in requisicoes">
+						<td>{{requisicao.idRequesicao}}</td>
+						<td>{{requisicao.usuario.idUsuario}}</td>
+						<td>{{requisicao.usuario.nome}}</td>
+						<td>{{requisicao.usuario.cpf}}</td>
+						<td>{{requisicao.data}} </td>
+						<td>{{requisicao.tipoRequesicao}}</td>
+						<td>{{requisicao.observacaoRequesicao}}</td>
+						<td>
+							<button class="btn btn-info" ng-click="alterarRequesicao(requisicao)" ><span class="ion-edit"></span></button>
+							<button class="btn btn-danger" ng-click="confirmaDeletar(requisicao)" >
+								<span class="ion-trash-a"></span>
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>	
+		</div><!--Tabela-->
+		<br>
+		<hr>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-md-6">
+				<a href="cadastroRequesicao.html" class="btn btn-primary btn-lg btn-block">Nova Requesição</a>
+			</div>
+			<div class="col-md-6">
+				<a href="usuario.html" class="btn btn-success btn-lg btn-block">Área do Usuario</a>
+			
+			</div>
+		</div><!-- /row-->
+
+		<!--MODAL cadastro-->
+		<div class="modal fade" id="cadastroReqModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+			       			<h5 class="modal-title" id="exampleModalLabel">Cadastro de Requesição</h5>
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					        	<span aria-hidden="true">&times;</span>
+					        </button>
+					</div>
+				        <div class="modal-body">
+				        	
+				        </div>
+				</div>
+			</div>
+		</div>
+
+
+	</div> <!-- /container-->
+	<br>
+	<br>
+	<!-- <br><br><br><br><br>
+	<br>
+	<br>
+	<br>
+
+	{{requesicao.observacaoRequesicao}}
+	<br/>
+
+	<table border="1">
+		<tr>
+			<th>Id Requesicao</th>
+			<th>ID cliente</th>
+			<th>Nome Cliente</th>
+			<th>CPF cliente</th>
+			<th>Data Requesicao</th>
+			<th>Tipo Requesicao</th>
+			<th>ObservacaoRequesicao</th>
+			<th>Edição</th>
+		</tr>
+		<tr ng-repeat="requisicao in requisicoes">
+			<td>{{requisicao.idRequesicao}}</td>
+			<td>{{requisicao.cliente.idCliente}}</td>
+			<td>{{requisicao.cliente.nome}}</td>
+			<td>{{requisicao.cliente.cpf}}</td>
+			<td>{{requisicao.data}} </td>
+			<td>{{requisicao.tipoRequesicao}}</td>Cliente
+			<td>{{requisicao.observacaoRequesicao}}</td>
+			<td>
+				<input type="button" value="Deletar" ng-click="deletarRequesicao(requisicao)"/>
+				<input type="button" value="Alterar" ng-click="alterarRequesicao(requisicao)"/>
+			</td>
+		</tr>
+	</table>
+
+	Buscar pelo ID: <input type="text" ng-model="requesicaoBusca" > <input type="button" value="Buscar" ng-click="buscarRequesicao(requesicaoBusca)"><br>
+	Buscar pelo ID Cliente: <input type="text" ng-model="requesicaoBuscaCliente" > <input type="button" value="Buscar" ng-click="buscarRequesicaoCliente(requesicaoBuscaCliente)"><br>
+	<br/>
+	<hr/>
+
+	<h1>Cadastro de requesicao</h1>
+
+	idcliente <br/>
+	<input type="text" ng-model="requesicao.cliente.idCliente"><br/>
+	Tipo de requesicao <br/>
+	<select ng-model="requesicao.tipoRequesicao">
+		<option value="Viagem">Viagem</option>
+		<option value="Ausencia">Ausencia</option>
+	</select>
+
+
+	Observacao <br/>
+	<textarea  cols="30" rows="10" ng-model="requesicao.observacaoRequesicao"></textarea><br/>
+	<input type="button" value="Salvar Requesicao" ng-click="salvarRequesicao()"/>
+	<input type="button" value="Cancelar" ng-click="cancelarAlteracaoRequesicao()"/>
+
+	<hr/>
+
+	<a href="cliente.html"> área do Cliente </a>  -->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
+</html>
+
